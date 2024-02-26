@@ -12,6 +12,14 @@ body {
   font-family: "Google Sans", sans-serif;
 }
 
+@media only screen and (min-width: 601px) {
+  .main,
+  .user {
+    display: none;
+  }
+}
+
+
 @media only screen and (max-width: 600px) {
   #main {
     padding: 1rem;
@@ -55,7 +63,10 @@ body {
     margin-left: 10px;
     border: 2px solid rgba(0, 0, 0, 0.1);
     max-width: calc(100% - 25%);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
+
   .gassist span {
     padding: 10px 16px;
     height: auto;
@@ -102,7 +113,7 @@ body {
     height: 52px;
     border: none !important;
     box-shadow: none !important;
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
   }
   .usermain {
     margin: 0 auto;
@@ -113,7 +124,7 @@ body {
     height: 52px;
     transition: all 0.3s ease;
   }
-  
+
   .users-input {
     border: none;
     font-size: 20px;

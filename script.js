@@ -3,6 +3,17 @@ const keyboardBtn = document.getElementById('keyboard');
 const userDiv = document.querySelector('.user');
 const usermainDiv = document.querySelector('.usermain');
 const textarea = document.querySelector('.users-input');
+const voiceBtn = document.getElementById('voicebtn');
+const voiceIcon = document.getElementById('voice');
+const voiceBar = document.getElementById('voicebar');
+
+// Add click event listener to the voice button
+voiceBtn.addEventListener('click', () => {
+  // Toggle visibility of voice icon and voice bars
+  voiceIcon.classList.toggle('hidden');
+  voiceBar.classList.toggle('hidden');
+});
+
 
 // Function to handle reverting back to normal state
 function revertToNormal() {
