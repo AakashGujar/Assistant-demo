@@ -17,17 +17,7 @@ body {
     padding: 1rem;
   }
   .gassist {
-    /* padding: 8px 14px;
-  margin-right: 7px;
-  margin-top: 6px;
-  margin-left: 15px;
-  margin-bottom: 6px;
-  max-width: 50%;
-  align-content: right; */
-    /* float: left;  */
-    /* display: inline-block; */
     height: auto;
-    /* justify-content: right; */
     clear: both;
     width: auto;
     color: #000;
@@ -157,7 +147,27 @@ body {
     padding-top: 7px;
     display: inline;
     width: 40px;
+    padding-inline: 3px;
+    border: 1px solid transparent;
+    border-radius: 50%;
   }
+  .voicebtn.active {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.5);
+    animation: pulse 1s infinite;
+    background-color: rgba(30, 143, 255, 0.189);
+    padding-inline: 3px;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    }
+  }
+ 
+
   .lens {
     width: 55px;
     margin: 0;
@@ -167,7 +177,7 @@ body {
   }
   .glens {
     width: 25px;
-    padding-right: 24px;
+    padding-right: 20px;
     padding-left: 20px;
     transition: opacity 0.4s;
     padding-bottom: 7px;

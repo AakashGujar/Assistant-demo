@@ -1,74 +1,57 @@
-// Get the elements
-const keyboardBtn = document.getElementById('keyboard');
-const userDiv = document.querySelector('.user');
-const usermainDiv = document.querySelector('.usermain');
-const textarea = document.querySelector('.users-input');
-const voiceBtn = document.getElementById('voicebtn');
-const voiceIcon = document.getElementById('voice');
-const voiceBar = document.getElementById('voicebar');
+const keyboardBtn = document.getElementById("keyboard");
+const userDiv = document.querySelector(".user");
+const usermainDiv = document.querySelector(".usermain");
+const textarea = document.querySelector(".users-input");
+const voiceBtn = document.getElementById("voicebtn");
 
-// Add click event listener to the voice button
-voiceBtn.addEventListener('click', () => {
-  // Toggle visibility of voice icon and voice bars
-  voiceIcon.classList.toggle('hidden');
-  voiceBar.classList.toggle('hidden');
+voiceBtn.addEventListener("click", () => {
+  // Toggle the 'active' class on the voice button
+  voiceBtn.classList.toggle("active");
+
+  // Call the openInputField function
+  openInputField();
 });
 
-
-// Function to handle reverting back to normal state
-function revertToNormal() {
-  userDiv.classList.remove('userSecond');
-  usermainDiv.classList.remove('usermainSecond');
-  textarea.classList.add('hidden');
-  // Clear textarea value
-  textarea.value = '';
+function openInputField() {
+  userDiv.classList.add("userSecond");
+  usermainDiv.classList.add("usermainSecond");
+  textarea.classList.remove("hidden");
+  textarea.focus();
 }
 
-// Add click event listener to the keyboard button
-keyboardBtn.addEventListener('click', () => {
-  // Change class names and show textarea
-  userDiv.classList.add('userSecond');
-  usermainDiv.classList.add('usermainSecond');
-  textarea.classList.remove('hidden');
-  // Focus on the textarea
-  textarea.focus();
-});
+function revertToNormal() {
+  userDiv.classList.remove("userSecond");
+  usermainDiv.classList.remove("usermainSecond");
+  textarea.classList.add("hidden");
+  textarea.value = "";
+  // Remove the 'active' class from the voice button
+  voiceBtn.classList.remove("active");
+}
 
-// Add blur event listener to the textarea
-textarea.addEventListener('blur', () => {
-  // Get the value of the textarea
+keyboardBtn.addEventListener("click", openInputField);
+
+textarea.addEventListener("blur", () => {
   const message = textarea.value.trim();
-
   if (message) {
-    // Append the message to the main div
-    const mainDiv = document.getElementById('main');
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('users-message');
+    const mainDiv = document.getElementById("main");
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("users-message");
     messageDiv.innerHTML = `<span>${message}</span>`;
     mainDiv.appendChild(messageDiv);
   }
-
-  // Revert back to normal state
   revertToNormal();
 });
 
-// Add keydown event listener to the textarea
-textarea.addEventListener('keydown', (event) => {
-  // Check if the pressed key is Enter
-  if (event.key === 'Enter') {
-    // Prevent the default action of Enter key (e.g., form submission)
+textarea.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
     event.preventDefault();
-
-    // Trigger blur event to handle the message and revert back to normal
     textarea.blur();
   }
 });
 
-// Add click event listener to the document to revert back to normal state when clicking outside user area
-document.addEventListener('click', (event) => {
-  // Check if the click is outside the user area
-  if (!userDiv.contains(event.target)) {
-    // Revert back to normal state
+document.addEventListener("click", (event) => {
+  // Check if the clicked element is not within the userDiv or textarea
+  if (!userDiv.contains(event.target) && !textarea.contains(event.target)) {
     revertToNormal();
   }
 });
