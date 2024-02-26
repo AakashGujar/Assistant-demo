@@ -1,19 +1,26 @@
+// Get the elements
 const keyboardBtn = document.getElementById('keyboard');
 const userDiv = document.querySelector('.user');
 const usermainDiv = document.querySelector('.usermain');
 const textarea = document.querySelector('.users-input');
 
+// Function to handle reverting back to normal state
 function revertToNormal() {
   userDiv.classList.remove('userSecond');
   usermainDiv.classList.remove('usermainSecond');
   textarea.classList.add('hidden');
+  // Clear textarea value
   textarea.value = '';
 }
 
+// Add click event listener to the keyboard button
 keyboardBtn.addEventListener('click', () => {
+  // Change class names and show textarea
   userDiv.classList.add('userSecond');
   usermainDiv.classList.add('usermainSecond');
   textarea.classList.remove('hidden');
+  // Focus on the textarea
+  textarea.focus();
 });
 
 // Add blur event listener to the textarea

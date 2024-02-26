@@ -77,11 +77,12 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: all 0.3s ease;
   }
   .userSecond {
     width: 100%;
     position: fixed;
-    bottom: 10px;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,23 +92,28 @@ body {
     padding-top: 10px;
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
+    transition: all 0.3s ease;
   }
   .usermainSecond {
+    /* bottom: 0; */
     margin: 0 auto;
     width: 185px;
     border-radius: 25px;
     height: 52px;
     border: none !important;
     box-shadow: none !important;
+    transition: all 0.3s ease; 
   }
   .usermain {
     margin: 0 auto;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* border: 1px solid rgba(0, 0, 0, 0.1); */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 4px rgba(0, 0, 0, 0.23);
     width: 185px;
     border-radius: 25px;
     height: 52px;
+    transition: all 0.3s ease;
   }
+  
   .users-input {
     border: none;
     font-size: 20px;
